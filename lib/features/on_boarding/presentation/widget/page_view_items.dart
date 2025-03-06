@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_app/constants.dart';
+import 'package:fruits_app/core/services/shared_preferences_singleton.dart';
+import 'package:fruits_app/core/utils/app_text_styles.dart';
+import 'package:fruits_app/features/auth/presentation/view/login_view.dart';
 
 class PageViewItems extends StatelessWidget {
   const PageViewItems({
@@ -8,10 +12,12 @@ class PageViewItems extends StatelessWidget {
     required this.backgroundImage,
     required this.title,
     required this.subtitle,
+    required this.isVisble,
   });
   final String image, backgroundImage;
   final Widget title;
   final String subtitle;
+  final bool isVisble;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +37,22 @@ class PageViewItems extends StatelessWidget {
                 right: 0,
                 child: SvgPicture.asset(image),
               ),
-              const Padding(padding: EdgeInsets.all(16), child: Text('تخط')),
+              Visibility(
+                  visible: isVisble,
+                  child: GestureDetector(
+                    onTap: () {
+                      Prefs.setBool(kIsOnBoardingViewSeen, true);
+                      Navigator.of(context)
+                          .popAndPushNamed(LoginView.routeName);
+                    },
+                    child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          'تخط',
+                          style: TextStyles.regular13
+                              .copyWith(color: Color(0xFF949D9E)),
+                        )),
+                  )),
             ],
           ),
         ),
@@ -39,8 +60,10 @@ class PageViewItems extends StatelessWidget {
         title,
         SizedBox(height: 24),
         Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text(subtitle, textAlign: TextAlign.center),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(subtitle,
+              style: TextStyles.bold13.copyWith(color: Color(0xFF4E5556)),
+              textAlign: TextAlign.center),
         ),
       ],
     );
