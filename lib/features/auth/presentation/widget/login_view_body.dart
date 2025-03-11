@@ -59,7 +59,7 @@ class LoginViewBody extends StatelessWidget {
             SizedBox(
               height: 33,
             ),
-            DontHaveAnAccount(),
+            DontHaveAnAccountWidget(),
             SizedBox(
               height: 37,
             ),
