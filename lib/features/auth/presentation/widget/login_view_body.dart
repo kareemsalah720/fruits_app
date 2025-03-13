@@ -22,16 +22,16 @@ class LoginViewBody extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
-            CustomTextFormFieldWidget(
+            CustomTextFormField(
               hintText: 'البريد الالكتروني',
-              keyboardType: TextInputType.emailAddress,
+              textInputType: TextInputType.emailAddress,
             ),
             SizedBox(
               height: 16,
             ),
-            CustomTextFormFieldWidget(
+            CustomTextFormField(
               hintText: 'كلمة المرور',
-              keyboardType: TextInputType.visiblePassword,
+              textInputType: TextInputType.visiblePassword,
               suffixIcon: Icon(
                 Icons.remove_red_eye,
                 color: Color(0xffC9CECF),
