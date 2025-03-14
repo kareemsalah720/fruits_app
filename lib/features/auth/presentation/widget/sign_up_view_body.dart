@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/constants.dart';
 import 'package:fruits_app/core/widgets/custom_button_widget.dart';
 import 'package:fruits_app/core/widgets/custom_text_form_field_widget.dart';
+import 'package:fruits_app/core/widgets/password_field.dart';
 import 'package:fruits_app/features/auth/presentation/cubits/signup/signup_cubit.dart';
 import 'package:fruits_app/features/auth/presentation/widget/have_an_account.dart';
 import 'package:fruits_app/features/auth/presentation/widget/terms_and_conditions.dart';
@@ -51,16 +52,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              PasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
-                suffixIcon: const Icon(
-                  Icons.remove_red_eye,
-                  color: Color(0xffC9CECF),
-                ),
-                hintText: 'كلمة المرور',
-                textInputType: TextInputType.visiblePassword,
               ),
               const SizedBox(
                 height: 16,

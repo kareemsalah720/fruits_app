@@ -21,7 +21,7 @@ void main() async {
   await Prefs.init();
   setupGetit();
   runApp(const FruitHub());
-}x``
+}
 
 class FruitHub extends StatelessWidget {
   const FruitHub({super.key});
