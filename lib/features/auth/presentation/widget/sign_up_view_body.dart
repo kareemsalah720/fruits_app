@@ -22,7 +22,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  late String email = '', userName = '', password = '';
+  late String email, userName, password;
   late bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               TermsAndConditionsWidget(
                 onChanged: (value) {
-                  isTermsAccepted = value;
+                  isTermsAccepted = value!;
                 },
               ),
               const SizedBox(

@@ -19,7 +19,7 @@ class _PasswordFieldState extends State<PasswordField> {
   Widget build(BuildContext context) {
     return CustomTextFormField(
       obscureText: obscureText,
-      onSaved: (value) {},
+      onSaved: widget.onSaved,
       suffixIcon: GestureDetector(
         onTap: () {
           obscureText = !obscureText;
@@ -27,11 +27,11 @@ class _PasswordFieldState extends State<PasswordField> {
         },
         child: obscureText
             ? const Icon(
-                Icons.remove_red_eye,
+                Icons.visibility_off,
                 color: Color(0xffC9CECF),
               )
             : const Icon(
-                Icons.visibility_off,
+                Icons.remove_red_eye,
                 color: Color(0xffC9CECF),
               ),
       ),
