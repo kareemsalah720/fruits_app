@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/core/services/get_it_service.dart';
 import 'package:fruits_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruits_app/features/auth/presentation/cubits/signin/signin_cubit.dart';
-import 'package:fruits_app/features/auth/presentation/widget/login_view_body.dart';
+import 'package:fruits_app/features/auth/presentation/widget/sign_in_view_body_bloc_consumer.dart';
 import '../../../../core/functions/custom_app_bar_function.dart';
 
 class SigninView extends StatelessWidget {
@@ -18,8 +18,11 @@ class SigninView extends StatelessWidget {
           context,
           title: 'تسجيل الدخول',
         ),
-        body: SafeArea(child: SignInViewBody()),
+        body: SafeArea(
+            child: SignInViewBodyBlocConsumer()),
       ),
     );
   }
 }
+
+
