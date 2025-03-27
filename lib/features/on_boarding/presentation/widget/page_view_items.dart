@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fruits_app/constants.dart';
 import 'package:fruits_app/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_app/core/utils/app_text_styles.dart';
-import 'package:fruits_app/features/auth/presentation/view/login_view.dart';
+import 'package:fruits_app/features/auth/presentation/view/sign_in_view.dart';
 
 class PageViewItems extends StatelessWidget {
   const PageViewItems({
@@ -43,7 +43,7 @@ class PageViewItems extends StatelessWidget {
                     onTap: () {
                       Prefs.setBool(kIsOnBoardingViewSeen, true);
                       Navigator.of(context)
-                          .popAndPushNamed(LoginView.routeName);
+                          .popAndPushNamed(SigninView.routeName);
                     },
                     child: Padding(
                         padding: EdgeInsets.all(16),

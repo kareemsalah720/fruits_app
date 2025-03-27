@@ -4,7 +4,7 @@ import 'package:fruits_app/constants.dart';
 import 'package:fruits_app/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/widgets/custom_button_widget.dart';
-import 'package:fruits_app/features/auth/presentation/view/login_view.dart';
+import 'package:fruits_app/features/auth/presentation/view/sign_in_view.dart';
 import 'package:fruits_app/features/on_boarding/presentation/widget/on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -61,7 +61,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           child: CustomButton(
               onPressed: () {
                   Prefs.setBool(kIsOnBoardingViewSeen, true);
-                Navigator.of(context).popAndPushNamed(LoginView.routeName);
+                Navigator.of(context).popAndPushNamed(SigninView.routeName);
               },
               text: 'ابدا الان'),
         ),
