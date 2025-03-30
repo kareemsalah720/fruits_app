@@ -7,4 +7,5 @@ abstract class AuthRepo {
       String email, String pass, String name);
   Future<Either<Failure, UserEntity>> signinWithEmailAndPassword(
       String email, String password,);
+       Future<Either<Failure, UserEntity>> signinWithGoogle();
 }
