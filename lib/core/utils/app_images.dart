@@ -71,8 +71,8 @@ class Assets {
   static const String imagesPageViewItem2Image = "assets/images/page_view_item2_image.svg";
 
   /// Assets for imagesPlant
-  /// assets/images/plant.svg
-  static const String imagesPlant = "assets/images/plant.svg";
+  /// assets/images/Plant.svg
+  static const String imagesPlant = "assets/images/Plant.svg";
 
   /// Assets for imagesProfileImage
   /// assets/images/profile_image.png
