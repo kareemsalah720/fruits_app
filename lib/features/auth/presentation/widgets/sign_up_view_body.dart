@@ -5,8 +5,8 @@ import 'package:fruits_app/core/functions/build_error_bar.dart';
 import 'package:fruits_app/core/widgets/custom_button_widget.dart';
 import 'package:fruits_app/core/widgets/custom_text_form_field_widget.dart';
 import 'package:fruits_app/features/auth/presentation/cubits/signup/signup_cubit.dart';
-import 'package:fruits_app/features/auth/presentation/widget/have_an_account.dart';
-import 'package:fruits_app/features/auth/presentation/widget/terms_and_conditions.dart';
+import 'package:fruits_app/features/auth/presentation/widgets/have_an_account.dart';
+import 'package:fruits_app/features/auth/presentation/widgets/terms_and_conditions.dart';
 
 import '../../../../../core/widgets/password_field.dart';
 

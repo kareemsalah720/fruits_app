@@ -4,7 +4,7 @@ import 'package:fruits_app/core/functions/custom_app_bar_function.dart';
 import 'package:fruits_app/core/services/get_it_service.dart';
 import 'package:fruits_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruits_app/features/auth/presentation/cubits/signup/signup_cubit.dart';
-import 'package:fruits_app/features/auth/presentation/widget/signup_view_body_bloc_consumer.dart';
+import 'package:fruits_app/features/auth/presentation/widgets/signup_view_body_bloc_consumer.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});

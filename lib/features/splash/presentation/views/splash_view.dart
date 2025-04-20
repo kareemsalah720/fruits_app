@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_app/constants.dart';
 import 'package:fruits_app/core/services/shared_preferences_singleton.dart';
-import 'package:fruits_app/features/auth/presentation/view/sign_in_view.dart';
+import 'package:fruits_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:fruits_app/features/on_boarding/presentation/view/on_boarding_view.dart';
 import 'package:fruits_app/features/splash/presentation/widgets/splash_view_body.dart';
 

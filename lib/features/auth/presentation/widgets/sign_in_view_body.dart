@@ -10,9 +10,9 @@ import 'package:fruits_app/core/widgets/custom_button_widget.dart';
 import 'package:fruits_app/core/widgets/custom_text_form_field_widget.dart';
 import 'package:fruits_app/core/widgets/password_field.dart';
 import 'package:fruits_app/features/auth/presentation/cubits/signin/signin_cubit.dart';
-import 'package:fruits_app/features/auth/presentation/widget/dont_have_an_account.dart';
-import 'package:fruits_app/features/auth/presentation/widget/or_divider.dart';
-import 'package:fruits_app/features/auth/presentation/widget/social_login_button.dart';
+import 'package:fruits_app/features/auth/presentation/widgets/dont_have_an_account.dart';
+import 'package:fruits_app/features/auth/presentation/widgets/or_divider.dart';
+import 'package:fruits_app/features/auth/presentation/widgets/social_login_button.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
