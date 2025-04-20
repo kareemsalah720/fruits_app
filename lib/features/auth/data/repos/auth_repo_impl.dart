@@ -5,7 +5,7 @@ import 'package:fruits_app/core/errors/exceptions.dart';
 import 'package:fruits_app/core/errors/failures.dart';
 import 'package:fruits_app/core/services/database_service.dart';
 import 'package:fruits_app/core/services/firebase_service.dart';
-import 'package:fruits_app/core/utils/backend_Endpoint.dart';
+import 'package:fruits_app/core/utils/backend_endpoint.dart';
 import 'package:fruits_app/features/auth/data/models/user_model.dart';
 import 'package:fruits_app/features/auth/domain/entites/user_entity.dart';
 import 'package:fruits_app/features/auth/domain/repos/auth_repo.dart';
@@ -54,9 +54,8 @@ class AuthRepoImpl extends AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
-      return right(
-        UserModel.fromFireBaseUser(user),
-      );
+      var userEntity = await getUserData(uid: user.uid);
+      return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
     } catch (e) {
@@ -77,7 +76,13 @@ class AuthRepoImpl extends AuthRepo {
     try {
       user = await firebaseAuthService.signInWithGoogle();
       var userEntity = UserModel.fromFireBaseUser(user);
-      addUserData(userEntity: userEntity);
+      var isUserExist = await databaseService.checkIfDataExists(
+          path: BackendEndpoint.isUserExists, docuementId: user.uid);
+      if (isUserExist) {
+        await getUserData(uid: user.uid);
+      } else {
+        await addUserData(userEntity: userEntity);
+      }
       return right(userEntity);
     } catch (e) {
       deleteUsers(user);
@@ -116,12 +121,21 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future addUserData({required UserEntity userEntity}) {
     return databaseService.addData(
-        path: BackendEndpoint.addUserData, data: userEntity.toMap());
+        docId: userEntity.uId,
+        path: BackendEndpoint.addUserData,
+        data: userEntity.toMap());
   }
 
   Future<void> deleteUsers(User? user) async {
     if (user != null) {
       await firebaseAuthService.deleteUser();
     }
+  }
+
+  @override
+  Future<UserEntity> getUserData({required String uid}) async {
+    var userData = await databaseService.getData(
+        path: BackendEndpoint.getUsersData, docId: uid);
+    return UserModel.fromJson(userData);
   }
 }
