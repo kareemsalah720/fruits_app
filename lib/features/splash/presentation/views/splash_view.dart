@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_app/constants.dart';
-import 'package:fruits_app/core/services/firebase_service.dart';
+import 'package:fruits_app/core/services/firebase_auth.dart';
 import 'package:fruits_app/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:fruits_app/features/home/presentation/views/home_view.dart';
