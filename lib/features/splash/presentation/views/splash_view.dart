@@ -3,7 +3,7 @@ import 'package:fruits_app/constants.dart';
 import 'package:fruits_app/core/services/firebase_auth.dart';
 import 'package:fruits_app/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_app/features/auth/presentation/views/sign_in_view.dart';
-import 'package:fruits_app/features/home/presentation/views/home_view.dart';
+import 'package:fruits_app/features/home/presentation/views/main_view.dart';
 import 'package:fruits_app/features/on_boarding/presentation/view/on_boarding_view.dart';
 import 'package:fruits_app/features/splash/presentation/widgets/splash_view_body.dart';
 
@@ -36,7 +36,7 @@ class _SplashViewState extends State<SplashView> {
         var isLoggedIn = FirebaseAuthService().isLoggedIn();
 
         if (isLoggedIn) {
-          Navigator.pushReplacementNamed(context, HomeView.routeName);
+          Navigator.pushReplacementNamed(context, MainView.routeName);
         } else {
           Navigator.pushReplacementNamed(context, SigninView.routeName);
         }

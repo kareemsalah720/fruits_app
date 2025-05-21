@@ -6,10 +6,10 @@ import 'package:fruits_app/core/repos/product_repo.dart';
 import 'package:fruits_app/core/services/database_service.dart';
 import 'package:fruits_app/core/utils/backend_endpoint.dart';
 
-class ProductRepoMpl implements ProductsRepo {
+class ProductRepoImpl implements ProductsRepo {
   final DatabaseService databaseService;
 
-  ProductRepoMpl(this.databaseService);
+  ProductRepoImpl(this.databaseService);
 
   @override
   Future<Either<Failure, List<ProductEntity>>> getBestSellingProducts() async {
