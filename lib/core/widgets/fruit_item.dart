@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_app/core/entites/product_entity.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/utils/app_images.dart';
 import 'package:fruits_app/core/utils/app_text_styles.dart';
+import 'package:fruits_app/core/widgets/custom_network_image.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
-
+  const FruitItem({super.key, required this.product});
+  final ProductEntity product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,15 +32,22 @@ class FruitItem extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Image.asset(
-                  Assets.imagesWatermelonTest,
-                ),
+               product.imageUrl != null
+                    ? Flexible(
+                        child: CustomNetworkImage(
+                            imageUrl: product.imageUrl!),
+                      )
+                    : Container(
+                        color: Colors.grey,
+                        height: 100,
+                        width: 100,
+                      ),
                 const SizedBox(
                   height: 24,
                 ),
                 ListTile(
-                  title: const Text(
-                    'بطيخ',
+                  title: Text(
+                    product.name,
                     textAlign: TextAlign.right,
                     style: TextStyles.semiBold16,
                   ),
@@ -46,7 +55,7 @@ class FruitItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: '30جنية ',
+                          text: '${product.price}جنية ',
                           style: TextStyles.bold13.copyWith(
                             color: AppColors.secondaryColor,
                           ),

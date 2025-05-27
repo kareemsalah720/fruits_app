@@ -21,6 +21,8 @@ class ProductRepoImpl implements ProductsRepo {
             'orderBy': 'sellingCount',
             'descending': true
           }) as List<Map<String, dynamic>>;
+      print('Raw Data: $data');
+      print('Products Count: ${data.length}');
 
       List<ProductEntity> products =
           data.map((e) => ProductModel.fromJson(e).toEntity()).toList();

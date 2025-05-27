@@ -16,6 +16,7 @@ class BestSellingGridViewBlocBuilder extends StatelessWidget {
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
         if (state is ProductsSuccess) {
+           print("Products loaded: ${state.products.length}");
           return BestSellingGridView(
             products: state.products,
           );
