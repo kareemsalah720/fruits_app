@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:fruits_app/core/utils/app_text_styles.dart';
 import 'package:fruits_app/core/widgets/notification_widget.dart';
 
-AppBar buildAppBar(context, {required String title}) {
+AppBar buildAppBar(context, {required String title,bool arrowBack = true}) {
   return AppBar(
     actions: [Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: NotificationWidget(),
     )],
     backgroundColor: Colors.white,
-    leading: GestureDetector(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Icon(Icons.arrow_back_ios_new)),
+    leading: Visibility(
+      visible: arrowBack,
+      child: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back_ios_new)),
+    ),
     centerTitle: true,
     title: Text(title, textAlign: TextAlign.center, style: TextStyles.bold19),
   );
