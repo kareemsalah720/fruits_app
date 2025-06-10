@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_app/features/home/domain/entites/car_item_entity.dart';
+import 'package:fruits_app/features/home/domain/entites/cart_item_entity.dart';
 import 'package:fruits_app/features/home/presentation/widgets/cart_item.dart';
 
 class CarItemsList extends StatelessWidget {
   const CarItemsList({super.key, required this.carItems});
- final List<CarItemEntity> carItems;
+ final List<CartItemEntity> carItems;
   @override
   Widget build(BuildContext context) {
     return SliverList.separated(

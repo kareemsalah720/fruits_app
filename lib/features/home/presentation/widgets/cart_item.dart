@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/widgets/custom_network_image.dart';
-import 'package:fruits_app/features/home/domain/entites/car_item_entity.dart';
+import 'package:fruits_app/features/home/domain/entites/cart_item_entity.dart';
+import 'package:fruits_app/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruits_app/features/home/presentation/widgets/cart_item_action_buttons.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({super.key, required this.carItemEntity});
-  final CarItemEntity carItemEntity;
+  final CartItemEntity carItemEntity;
   @override
   Widget build(BuildContext context) {
     return IntrinsicHeight(
@@ -39,7 +41,9 @@ class CartItem extends StatelessWidget {
                     ),
                     const Spacer(),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        context.read<CartCubit>().deleteCarItem(carItemEntity);
+                      },
                       child: SvgPicture.asset(
                         Assets.imagesTrash,
                       ),
@@ -55,7 +59,9 @@ class CartItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const CartItemActionButtons(),
+                    CartItemActionButtons(
+                      cartItemEntity: carItemEntity,
+                    ),
                     const Spacer(),
                     Text(
                       '${carItemEntity.calculateTotalPrice()} جنيه ',

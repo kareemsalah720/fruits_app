@@ -1,13 +1,16 @@
 import 'package:fruits_app/core/entites/product_entity.dart';
-import 'package:fruits_app/features/home/domain/entites/car_item_entity.dart';
+import 'package:fruits_app/features/home/domain/entites/cart_item_entity.dart';
 
 class CartEntity {
-  final List<CarItemEntity> cartItems;
+  final List<CartItemEntity> cartItems;
 
   CartEntity(this.cartItems);
 
-  addCartItem(CarItemEntity cartItemEntity) {
+  addCartItem(CartItemEntity cartItemEntity) {
     cartItems.add(cartItemEntity);
+  }
+   removeCarItem(CartItemEntity carItem) {
+    cartItems.remove(carItem);
   }
 
   bool isExis(ProductEntity product) {
@@ -19,13 +22,13 @@ class CartEntity {
     return false;
   }
 
-  CarItemEntity getCarItem(ProductEntity product) {
+  CartItemEntity getCarItem(ProductEntity product) {
     for (var carItem in cartItems) {
       if (carItem.productEntity == product) {
         return carItem;
       }
     }
-    return CarItemEntity(productEntity: product, count: 1);
+    return CartItemEntity(productEntity: product, count: 1);
   }
 
   double calculateTotalPrice() {
